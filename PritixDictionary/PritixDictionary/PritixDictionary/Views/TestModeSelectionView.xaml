@@ -10,10 +10,10 @@
             </Grid.RowDefinitions>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
                 <Label Margin="5,0,5,0" HorizontalOptions="FillAndExpand" TextColor="{StaticResource ThemeForegroundColor}" 
-                                                   Text="Configure Number of Questions for the Test :"/>
+                                                   Text="Configure Number of Questions for the Test :" FontSize="Medium" />
                 <Picker Margin="5,10,5,0" ItemsSource="{Binding CountSelectionList}" SelectedItem="{Binding SelectedTestQuestionCount}" TextColor="{StaticResource ThemeForegroundColor}" BackgroundColor="{StaticResource ThemeBackgroundColor}"/>
-                <Label Margin="5,0,5,0" HorizontalOptions="FillAndExpand" TextColor="{StaticResource ThemeForegroundColor}" 
-                                                   Text="Choose Test Type :"/>
+                <Label Margin="5,10,5,0" HorizontalOptions="FillAndExpand" TextColor="{StaticResource ThemeForegroundColor}" 
+                                                   Text="Choose Test Type :" FontSize="Medium"/>
                 <Picker Margin="5,10,5,0"  ItemsSource="{Binding TypeSelectionList}" SelectedItem="{Binding SelectedTestType}" TextColor="{StaticResource ThemeForegroundColor}" BackgroundColor="{StaticResource ThemeBackgroundColor}"/>
             </StackLayout>
             <Button Grid.Row="1" Margin="0,20,0,0" Text="Let's Go!!" BackgroundColor="{StaticResource ThemeForegroundColor}" TextColor="{StaticResource ThemeBackgroundColor}" Command="{Binding Start}"/>

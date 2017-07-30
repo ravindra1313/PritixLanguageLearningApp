@@ -39,7 +39,12 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Behaviors\EmailValidatorBehavior.cs" />
+    <Compile Include="CustomRenderers\BindableRadioGroup.cs" />
+    <Compile Include="CustomRenderers\CustomRadioButton.cs" />
     <Compile Include="Database\PritixDatabase.cs" />
+    <Compile Include="Extensions\BindableObjectExtensions.cs" />
+    <Compile Include="Helper\EventArgs{T}.cs" />
+    <Compile Include="Helper\EventExtensions.cs" />
     <Compile Include="Interfaces\ServiceInterface\IDBFileHelper.cs" />
     <Compile Include="Interfaces\ServiceInterface\IDialogService.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -110,10 +115,6 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PSC.Xam.Controls.BindableRadioButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PSC.Xam.Controls.BindableRadioButton.1.0.0\lib\portable45-net45+win8+wp8+wpa81\PSC.Xam.Controls.BindableRadioButton.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
