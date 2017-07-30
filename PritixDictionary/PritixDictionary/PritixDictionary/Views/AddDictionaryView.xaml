@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PritixDictionary.Views.AddDictionaryView" Title="Add Dictionary">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Order="Primary" Text="SAVE" Priority="0" Command="{Binding SaveDictionary}" />
+        <ToolbarItem  Order="Primary" Text="CANCEL" Priority="1" Command="{Binding GoHome}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid Margin="10,0,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Vertical">
+                <Label Text="Choose Primary Language" TextColor="{StaticResource ThemeForegroundColor}"/>
+                <Picker Margin="0,10,0,0" ItemsSource="{Binding Languages}" SelectedIndex="{Binding PrimaryLangSelectedIndex}" TextColor="{StaticResource ThemeForegroundColor}" BackgroundColor="{StaticResource ThemeBackgroundColor}"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1" Orientation="Vertical">
+                <Label Text="Choose Translate Language" TextColor="{StaticResource ThemeForegroundColor}"/>
+                <Picker Margin="0,10,0,0" ItemsSource="{Binding Languages}" SelectedIndex="{Binding TranslateLangSelectedIndex}" TextColor="{StaticResource ThemeForegroundColor}" BackgroundColor="{StaticResource ThemeBackgroundColor}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

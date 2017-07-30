@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PritixDictionary.Views.TestView">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout>
+                <Label Margin="0,20,0,10" FontSize="Large" TextColor="{StaticResource ThemeForegroundColor}" HorizontalOptions="CenterAndExpand" Text="{Binding QuestionIndex,StringFormat='{} Question {0}'}"/>
+                <BoxView Color="{StaticResource ThemeForegroundColor}" HeightRequest="2" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <ContentView Grid.Row="1" ControlTemplate="{Binding CurrentQuestionTemplate}" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            </ContentView>
+            <Button Grid.Row="2" Text="{Binding ButtonText}" Command="{Binding Next}" BackgroundColor="{StaticResource ThemeForegroundColor}" BorderColor="{StaticResource ThemeForegroundColor}" BorderWidth="15" BorderRadius="10" TextColor="{StaticResource ThemeBackgroundColor}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

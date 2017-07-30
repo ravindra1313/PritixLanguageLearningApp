@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PritixDictionary.Views.TestReportView">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Congratulations!! You've Successfully Completed the Test." VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" FontAttributes="Bold" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="{StaticResource ThemeForegroundColor}"/>
+            <StackLayout Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label Text="Your Test Score"  FontAttributes="Bold" FontSize="Medium" TextColor="{StaticResource ThemeForegroundColor}"/>
+                <Label Text="{Binding Score}" FontAttributes="Bold" FontSize="Medium" TextColor="Black" HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            <Button Grid.Row="2" Command="{Binding BackToHome}" Text="Back To Home"  BackgroundColor="{StaticResource ThemeForegroundColor}" BorderColor="{StaticResource ThemeForegroundColor}" TextColor="{StaticResource ThemeBackgroundColor}">
+            </Button>
+        </Grid>       
+    </ContentPage.Content>
+</ContentPage>
