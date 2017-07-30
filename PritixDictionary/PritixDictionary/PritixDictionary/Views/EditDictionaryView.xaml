@@ -12,14 +12,20 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid Margin="15,15,15,0" BackgroundColor="{StaticResource ThemeForegroundColor}">
+            <Grid Margin="15,15,15,0" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.1*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Text="{Binding PrimaryLanguage}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="{StaticResource ThemeBackgroundColor}"/>
-                <Label Grid.Column="1" Text="{Binding TranslateLanguage}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="{StaticResource ThemeBackgroundColor}"/>
+                <StackLayout BackgroundColor="{StaticResource ThemeForegroundColor}">
+                    <Label Text="{Binding PrimaryLanguage}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="{StaticResource ThemeBackgroundColor}"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2" BackgroundColor="{StaticResource ThemeForegroundColor}">
+                    <Label  Text="{Binding TranslateLanguage}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="{StaticResource ThemeBackgroundColor}"/>
+                </StackLayout>
+                
             </Grid>
             <Grid Grid.Row="1">
                 <ListView Margin="15,10,15,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"

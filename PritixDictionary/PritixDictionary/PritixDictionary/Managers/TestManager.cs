@@ -73,8 +73,21 @@ namespace PritixDictionary.Managers
             for (int item = 0; item < TestQuestionBank.Count; item++)
             {
                 var detail = TestQuestionBank.ElementAt(item);
+                QuestionModel question;
+                if(TestType==AppConstants.TEST_TYPE_TYPE_ALONG)
+                {
+                    question = new QuestionModel() { Question = detail.Value};
+                }
+                else if(TestType == AppConstants.TEST_TYPE_MULTIPLE_CHOICE)
+                {
+                    question = new QuestionModel() { Question = detail.Key, AnswerChooserList = GetAnswerChooserList(detail) };
+                }
+                else
+                {
+                    question = new QuestionModel() { Question = detail.Key };
+                }
 
-                var question = new QuestionModel() { Question = detail.Key,AnswerChooserList = GetAnswerChooserList(detail)};
+                 
                 Random rnd = new Random();
                 TestTemplateInfo templateInformation = new TestTemplateInfo()
                 {
@@ -95,11 +108,21 @@ namespace PritixDictionary.Managers
         
         public void SubmitQuestionReportAndUpdateProgress(TestTemplateInfo templateInfo,QuestionModel question)
         {
-            var correctAnswer = TestQuestionBank.Where(x => x.Key == question.Question).FirstOrDefault().Value;
-           if(this.TestType == AppConstants.TEST_TYPE_MULTIPLE_CHOICE)
+            string correctAnswer;
+            if(this.TestType == AppConstants.TEST_TYPE_TYPE_ALONG)
             {
+                correctAnswer = question.Question;
+            }
+            else
+            {
+                correctAnswer = TestQuestionBank.Where(x => x.Key == question.Question).FirstOrDefault().Value;
+            }
+
+           if(this.TestType == AppConstants.TEST_TYPE_MULTIPLE_CHOICE)
+            {                
                 question.UserEnteredAnswer = question.SelectedAnswerIndex!=-1?question.AnswerChooserList.ElementAt(question.SelectedAnswerIndex):string.Empty;
-            }            
+            }
+                       
            if(question.UserEnteredAnswer==null)
             {
                 question.UserEnteredAnswer = string.Empty;

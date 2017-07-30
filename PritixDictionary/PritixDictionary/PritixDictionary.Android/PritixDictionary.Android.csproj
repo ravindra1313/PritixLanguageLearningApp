@@ -54,14 +54,6 @@
     </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
-    <Reference Include="PSC.Xam.Controls.BindableRadioButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PSC.Xam.Controls.BindableRadioButton.1.0.0\lib\portable45-net45+win8+wp8+wpa81\PSC.Xam.Controls.BindableRadioButton.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PSC.Xam.Controls.BindableRadioButton.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PSC.Xam.Controls.BindableRadioButton.Android.1.0.0\lib\monoandroid60\PSC.Xam.Controls.BindableRadioButton.Android.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\sqlite-net-pcl.1.3.3\lib\netstandard1.1\SQLite-net.dll</HintPath>
       <Private>True</Private>
@@ -143,6 +135,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderer\RadioButtonRenderer.cs" />
     <Compile Include="Helpers\DBFileHelper.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

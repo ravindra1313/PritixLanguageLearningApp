@@ -25,7 +25,7 @@ namespace PritixDictionary.ViewModels
             {
                 if (value == testQuestionCount) return;
                 testQuestionCount = value;
-                Notify("TestQuestionCount");
+                Notify("SelectedTestQuestionCount");
             }
         }
         private string testType;
