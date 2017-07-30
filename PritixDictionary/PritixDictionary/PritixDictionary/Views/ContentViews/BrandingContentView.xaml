@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PritixDictionary.Views.ContentViews.BrandingContentView">
+  <ContentView.Content>
+        <StackLayout Grid.Row="0"  Margin="0,50,0,50" HorizontalOptions="CenterAndExpand" >
+            <Image Source="logo.png" VerticalOptions="Center" HeightRequest="70" />
+            <Label Text="PritiX" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource ThemeForegroundColor}" />
+            <Label Text="Your Language Learning Companion" HorizontalOptions="Center" FontSize="Small" TextColor="{StaticResource ThemeForegroundColor}"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PritixDictionary.Views.SignInView" xmlns:cv="clr-namespace:PritixDictionary.Views.ContentViews"
+             xmlns:behavior ="clr-namespace:PritixDictionary.Behaviors"
+             BackgroundColor="{StaticResource ThemeBackgroundColor}" x:Name="SignInView">
+    <Grid VerticalOptions="CenterAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <cv:BrandingContentView />       
+        
+        <StackLayout Orientation="Vertical" Margin="10" Grid.Row="1" HorizontalOptions="CenterAndExpand">
+            <Entry Text="{Binding Email,Mode=TwoWay}" WidthRequest="250" Placeholder="Email" PlaceholderColor="{StaticResource ThemeForegroundColor}" Margin="10,0,10,0" TextColor="{StaticResource ThemeForegroundColor}"  Keyboard="Email" FontSize="14" >
+                <Entry.Behaviors>
+                    <behavior:EmailValidatorBehavior IsValid="{Binding Path=BindingContext.IsValidEmail,Source={x:Reference Name =SignInView},Mode=TwoWay}" ></behavior:EmailValidatorBehavior >
+                </Entry.Behaviors>
+            </Entry>
+            <Entry  Text="{Binding Password,Mode=TwoWay}" WidthRequest="250"  Margin="10,5,10,0" Placeholder="Password" PlaceholderColor="{StaticResource ThemeForegroundColor}"  TextColor="{StaticResource ThemeForegroundColor}" IsPassword="True"  FontSize="14">
+               
+            </Entry>
+            <Label Text="{Binding ErrorText}" FontSize="Small" TextColor="{StaticResource ErrorTextColor}"/>
+            <Button Margin="0,5,0,0" Command="{Binding SignInCommand}" WidthRequest="250" Text="Sign In"  BackgroundColor="{StaticResource ThemeForegroundColor}" BorderColor="{StaticResource ThemeForegroundColor}" BorderWidth="15" BorderRadius="10" TextColor="{StaticResource ThemeBackgroundColor}">
+            </Button>
+
+           
+            <Label Text="Want to create a new account ?"  Margin="10,10,10,0" TextColor="Black" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Sign up" TextColor="{StaticResource ThemeForegroundColor}"  FontSize="Medium" HorizontalOptions="CenterAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignUpCommand}"
+                         />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:radioControl="clr-namespace:PSC.Xam.Controls.BindableRadioButton;assembly=PSC.Xam.Controls.BindableRadioButton"
+             x:Class="PritixDictionary.App">
+	<Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ThemeForegroundColor">#48A0DC</Color>
+            <Color x:Key="ThemeBackgroundColor">#ffffff</Color>
+            <Color x:Key="ErrorTextColor">#ff0000</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#48A0DC"/>
+                <Setter Property="BarTextColor" Value="#ffffff"/>
+                <Setter Property="BackgroundColor" Value="#ffffff"/>
+            </Style>
+            <Style TargetType="Page">
+                <Setter Property="BackgroundColor" Value="#ffffff"/>
+            </Style>
+            <!--template Question 1-->
+            <ControlTemplate x:Key="TestTypeAlong">
+                <Grid Margin="20">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="{TemplateBinding BindingContext.CurrentQuestion.Question,StringFormat='{} Please write meaning of the word &quot;{0}&quot;.'}" FontSize="Medium"/>
+                        <Entry Margin="0,15,0,0"  Text="{TemplateBinding BindingContext.CurrentQuestion.UserEnteredAnswer}"  Placeholder="Write your answer here"/>
+                    </StackLayout>                    
+                </Grid>
+            </ControlTemplate>
+
+            <!--template Question 2-->
+            <ControlTemplate x:Key="TestMultipleChoice">
+                <Grid Margin="20">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="{TemplateBinding BindingContext.CurrentQuestion.Question,StringFormat='{} Choose the correct meaning of the word  &quot;{0} &quot;.'}"/>
+                        <radioControl:BindableRadioGroup  ItemsSource="{TemplateBinding BindingContext.CurrentQuestion.AnswerChooserList}" SelectedIndex="{TemplateBinding BindingContext.CurrentQuestion.SelectedAnswerIndex,Mode=TwoWay}" VerticalOptions="Start"/>
+                    </StackLayout>
+                </Grid>
+            </ControlTemplate>
+
+        <!--template Question 3-->
+        <ControlTemplate x:Key="TestTranslate">
+            <Grid Margin="20">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="{TemplateBinding BindingContext.CurrentQuestion.Question,StringFormat='{} Please enter meaning of the word {0}'}"/>
+                    <Entry Margin="0,15,0,0" Text="{TemplateBinding BindingContext.CurrentQuestion.UserEnteredAnswer}" Placeholder="Enter your answer here"/>
+                </StackLayout>
+            </Grid>
+        </ControlTemplate>
+        </ResourceDictionary>
+        <!-- Application resource dictionary -->
+        
+
+	</Application.Resources>
+</Application>

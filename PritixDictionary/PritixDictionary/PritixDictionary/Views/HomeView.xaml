@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PritixDictionary.Views.HomeView"
+             BackgroundColor="{StaticResource ThemeBackgroundColor}" x:Name="HomeView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Order="Primary" Text="ADD" Priority="0" Command="{Binding AddDictionary}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+        <Grid>
+            <ListView Margin="15,10,15,0" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" SelectedItem="{Binding SelectedDictionaryItem,Mode=TwoWay}"
+                      ItemsSource="{Binding DictionaryList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell x:Name="viewCell" >
+                            <ViewCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.EditDictionary, Source={x:Reference Name=HomeView}}" CommandParameter="{Binding .}"    
+                                Text="EDIT" />
+                                <MenuItem Command="{Binding DeleteDictionary}"  CommandParameter="{Binding .}"   
+                                Text="DELETE" />
+                            </ViewCell.ContextActions>
+                            <ViewCell.View>
+                                <ContentView Margin="0,0,0,10">
+                                    <Grid BackgroundColor="{StaticResource ThemeForegroundColor}" HorizontalOptions="FillAndExpand" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding FromLanguage}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium" TextColor="{StaticResource ThemeBackgroundColor}" />
+                                        <Label Grid.Column="1" Text="To" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium" TextColor="{StaticResource ThemeBackgroundColor}" />
+                                        <Label Grid.Column="2" Text="{Binding ToLanguage}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium" TextColor="{StaticResource ThemeBackgroundColor}"  />
+                                    </Grid>
+                                </ContentView>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
